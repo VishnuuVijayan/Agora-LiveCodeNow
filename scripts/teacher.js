@@ -200,11 +200,11 @@ function call() {
     },
     handleFail
   );
-  client.on("Stream Added", function (e) {
-    client.subscribe(e.stream, handleFail);
+  client.on("Stream Added", function (evt) {
+    client.subscribe(evt.stream, handleFail);
   });
-  client.on("Strem Subscribed", function (e) {
-    stream = e.stream;
+  client.on("Stream Subscribed", function (evt) {
+    stream = evt.stream;
     stream.play("students", { fit: "contain" });
   });
 

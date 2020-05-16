@@ -113,11 +113,11 @@ function VideoCall() {
     },
     handleFail
   );
-  client.on("Stream Added", function (e) {
-    client.subscribe(e.stream, handleFail);
+  client.on("Stream Added", function (evt) {
+    client.subscribe(evt.stream, handleFail);
   });
-  client.on("Strem Subscribed", function (e) {
-    let stream = e.stream;
+  client.on("Stream Subscribed", function (evt) {
+    let stream = evt.stream;
     stream.play("remote", { fit: "contain" });
   });
 }
