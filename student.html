@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="student.css">
+
+</head>
+<body>
+<header><a href="index.html"><img src="images/agora-logo.svg" alt=""></a></header>
+<main>
+    <div  class = "contain" id="remote"></div>
+    <div id="whiteboard"><div id="vid"></div></div>
+    <div  class = "contain" id="canvas-container"></div>
+
+    <div  class = "contain" id="teacher-canvas"></div>
+</main>
+<footer>
+<!-- APP ID: <input type="text" id="appid"> -->
+<button class="btn btn-round btn-md btn-filled-yellow" onclick="View()">VIEW WHITEBOARD</button>
+<button class="btn btn-round btn-md btn-filled-yellow" onclick="VideoCall()">VIDEO CALL</button>
+</footer>
+<script src="scripts/AgoraRTCSDK-3.0.0.js"></script>
+<script src="scripts/student.js"></script>
+</body>
+</html>

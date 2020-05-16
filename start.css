@@ -1,0 +1,159 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: #132226;
+}
+
+.box{
+    width: 300px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #040C0E;
+    text-align: center;
+}
+
+.box h1{
+    color: #39b6f5;
+    text-transform: uppercase;
+}
+
+a{
+    color: white;
+    font-size: 14px;
+    padding: 10px;
+}
+
+a:hover{
+    color: #39b6f5;
+}
+
+/* .box input[type = "text"],.box input[type = "password"]{ */
+.box input[type = "text"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #525B56;
+    padding: 14px 10px;
+    width: 200px;
+    color: white;
+    outline: none;
+    border-radius: 10px ;
+    transition: 0.25s;
+}
+
+.box input[type = "text"]:focus,.box input[type = "password"]:focus{
+    width: 280px;
+    border-color: #39b6f5;
+
+}
+
+.box input[type = "submit"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #39b6f5;
+    padding: 14px 40px; 
+    color: white;
+    outline: none;
+    border-radius: 10px ;
+    transition: 0.30;
+    cursor: pointer;
+}
+
+.box input[type = "submit"]:hover{
+    background:#39b6f5;
+}
+
+.button-switch {
+  font-size: 1.5em;
+  font-family: sans-serif;
+  height: 1.875em;
+  /* margin-bottom: 0.625em; */
+  margin: 0.625em 2.5em;
+  position: relative;
+  width: 7.5em;
+}
+.button-switch .lbl-off,
+.button-switch .lbl-on {
+  cursor: pointer;
+  display: block;
+  font-size: 0.9em;
+  font-weight: bold;
+  line-height: 1em;
+  position: absolute;
+  top: 0.5em;
+  -webkit-transition: opacity 0.25s ease-out 0.1s;
+  transition: opacity 0.25s ease-out 0.1s;
+  text-transform: uppercase;
+}
+.button-switch .lbl-off {
+  right: 1em;
+}
+.button-switch .lbl-on {
+  color: #fefefe;
+  opacity: 0;
+  left: 0.4375em;
+}
+.button-switch .switch {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 0;
+  font-size: 1em;
+  left: 0;
+  line-height: 0;
+  outline: none;
+  position: absolute;
+  top: 0;
+  width: 0;
+}
+.button-switch .switch:before, .button-switch .switch:after {
+  content: "";
+  font-size: 1em;
+  position: absolute;
+}
+.button-switch .switch:before {
+  border-radius: 1.25em;
+  background: #bdc3c7;
+  height: 1.875em;
+  left: -0.25em;
+  top: -0.1875em;
+  -webkit-transition: background-color 0.25s ease-out 0.1s;
+  transition: background-color 0.25s ease-out 0.1s;
+  width: 7.5em;
+}
+.button-switch .switch:after {
+  box-shadow: 0 0.0625em 0.375em 0 #666;
+  border-radius: 50%;
+  background: #fefefe;
+  height: 1.5em;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+  -webkit-transition: -webkit-transform 0.25s ease-out 0.1s;
+  transition: -webkit-transform 0.25s ease-out 0.1s;
+  transition: transform 0.25s ease-out 0.1s;
+  transition: transform 0.25s ease-out 0.1s, -webkit-transform 0.25s ease-out 0.1s;
+  width: 1.5em;
+}
+.button-switch .switch:checked:after {
+  -webkit-transform: translate(5.3125em, 0);
+          transform: translate(5.3125em, 0);
+}
+.button-switch .switch:checked ~ .lbl-off {
+  opacity: 0;
+}
+.button-switch .switch:checked ~ .lbl-on {
+  opacity: 1;
+}
+.button-switch .switch#switch-blue:checked:before {
+  background: #3498db;
+  /* background: #eff1f3; */
+}

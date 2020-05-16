@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agora.io E-learner | Teacher</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="teacher.css">
+    <script src="scripts/AgoraRTCSDK-3.0.0.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<header><a href="index.html"><img src="images/agora-logo.svg" alt=""></a></header>
+<main>
+    <div id="students" ></div>
+    <div id="me"></div>
+    <div id="whiteboard">
+        <canvas id="canvas"></canvas>
+        </br>
+        <input type="text" id = "hex">
+        <input type="color" id="color">
+        <span style="padding: 0 2em 0 5em;font-weight: bold;color: white; font-family: 'Poppins', sans-serif;" id="eraser_txt">ERASER SIZE:</span><input type="range" min="0" max="100" step="1" id="eraser_size">
+    </div>
+    
+    
+    
+</main>
+<footer>
+    <button class="btn btn-round btn-md btn-filled-yellow" onclick="Tog()">WHITEBOARD</button>
+    <button class="btn btn-round btn-md btn-filled-yellow" onclick="call()">VIDEO CALL</button>
+    <button class="btn btn-round btn-md btn-filled-yellow" id="button">MUTE REMOTE</button>
+    <button class="btn btn-round btn-md btn-filled-yellow" id="button2">MUTE SELF</button>
+    <button class="btn btn-round btn-md btn-filled-yellow" id="pen">PEN</button>
+    <button class="btn btn-round btn-md btn-filled-yellow" id="eraser">ERASER</button>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="scripts/ping.js"></script>
+<script src="scripts/teacher.js"></script>
+</body>
+</html>

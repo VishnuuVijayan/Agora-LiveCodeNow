@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+#brand-logo
+{
+position: absolute;
+margin : 0% 90% 90% 1%;
+}
+body{
+background: #304244;
+box-sizing: border-box;
+}
+#Master-computer
+{
+position: absolute;
+/* margin : 10% 20% 40%; */
+margin: 7% 20%;
+flex-grow: 1;
+min-height: 30vh;
+min-width: 10vh;
+}
+#medium{
+    display: none;
+}
+#small{
+    display: none;
+}
+.text-box {
+    position: absolute;
+    margin : 1% 5% 90% 90%;
+    
+    
+}
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    padding: 15px 20px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: absolute;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+    background-color: rgb(80, 247, 2);
+    color: rgb(255, 255, 255);
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: rgb(14, 148, 32);
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInBottom 5s ease-out;
+    animation-fill-mode: backwards;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+@media screen and (width: 1366px) and (height: 1024px)
+{
+    .text-box {
+        position: absolute;
+        margin : 1% 10% 90% 83%;
+    }
+    #big{
+        margin: 15vh 0 0 -2vw;
+    }
+    
+}
+@media screen and (max-width: 800px)
+{
+    .text-box {
+        position: absolute;
+        margin : 1% 10% 90% 83%;
+    }
+    #big
+    {
+        margin: 20% -20%;
+    }
+}
+@media screen and (max-width : 750px)
+{
+    #medium{
+        display: block;
+        margin: 20% -13.5%;
+    }
+    #big
+    {
+        display: none;
+    }    
+}
+
+@media screen and (max-width: 600px)
+{
+    .text-box {
+        position: absolute;
+        margin : 1% 20% 90% 75%;
+    }
+    #medium{
+        display: block;
+        margin: 20% -20%;
+    }
+    #big
+    {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 375px)
+{
+    .text-box {
+        position: absolute;
+        margin : 1% 20% 90% 73%;
+    }
+    #medium{
+        display: none;
+    }
+    #big
+    {
+        display: none;
+    }
+    #small{
+        display: block;
+        margin: 40% -23%;
+    }
+}
