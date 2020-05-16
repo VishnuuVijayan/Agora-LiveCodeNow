@@ -1,4 +1,4 @@
-const lyst = [];
+const list = [];
 var localmute;
 var flagall = false;
 var flagme = false;
@@ -167,22 +167,22 @@ function call() {
   let localmute;
   let flagone = false;
   let flagtwo = false;
-  let stream;
   let list = [];
-  config = {
+  let stream;
+  Config = {
     mode: "live",
-    codec: "h246"
+    codec: "h264"
   };
   handleFail = function (err) {
     console.log("Error!", err);
   };
-  var client = AgoraRTC.createClient(config);
-  client.init(
+  var Client = AgoraRTC.createClient(Config);
+  Client.init(
     "b72614399cdf4df484d0c19e83da594e",
     console.log("Client has been initialized!"),
     handleFail
   );
-  client.join(
+  Client.join(
     null,
     "2000",
     null,
@@ -190,48 +190,48 @@ function call() {
       let localStream = AgoraRTC.createStream({
         streamID: uid,
         audio: true,
-        vidoe: true,
+        video: true,
         screen: false
       });
       localStream.init(function () {
         localStream.play("me", { fit: "cover" });
-        client.publish(localStream);
+        Client.publish(localStream);
       });
+      localmute = localStream;
     },
     handleFail
   );
-  client.on("Stream Added", function (evt) {
-    client.subscribe(evt.stream, handleFail);
+  Client.on("Stream Added", function (evt) {
+    Client.subscribe(evt.stream, handleFail);
   });
-  client.on("Stream Subscribed", function (evt) {
+  Client.on("Stream Subscribed", function (evt) {
     stream = evt.stream;
+    list.push(stream);
     stream.play("students", { fit: "contain" });
   });
-
+  Client.on("Stream Removed", removeVideoStream);
+  Client.on("Peer Left", removeVideoStream);
   var others = document.getElementById("button");
   var me = document.getElementById("button2");
-
   others.addEventListener("click", function () {
     if (flagone == false) {
-      list.forEach(function (stream) {
-        stream.setAudioVolume(0);
+      list.forEach(function (Stream) {
+        Stream.setAudioVolume(0);
       });
       flagone = true;
     } else {
-      list.forEach(function (stream) {
-        stream.setAudioVolume(100);
+      list.forEach(function (Stream) {
+        Stream.setAudioVolume(100);
       });
       flagone = false;
     }
+  });
+  me.addEventListener("click", function () {
     if (flagtwo == false) {
-      list.forEach(function (stream) {
-        stream.setAudioVolume(0);
-      });
+      localmute.muteAudio();
       flagtwo = true;
     } else {
-      list.forEach(function (stream) {
-        stream.setAudioVolume(100);
-      });
+      localmute.unmuteAudio();
       flagtwo = false;
     }
   });

@@ -82,20 +82,20 @@ function View() {
 }
 
 function VideoCall() {
-  config = {
+  Config = {
     mode: "live",
-    codec: "h246"
+    codec: "h264"
   };
   handleFail = function (err) {
     console.log("Error!", err);
   };
-  var client = AgoraRTC.createClient(config);
-  client.init(
+  var Client = AgoraRTC.createClient(Config);
+  Client.init(
     "b72614399cdf4df484d0c19e83da594e",
     console.log("Client has been initialized!"),
     handleFail
   );
-  client.join(
+  Client.join(
     null,
     "2000",
     null,
@@ -103,21 +103,23 @@ function VideoCall() {
       let localStream = AgoraRTC.createStream({
         streamID: uid,
         audio: true,
-        vidoe: true,
+        video: true,
         screen: false
       });
       localStream.init(function () {
-        //   localStream.play("me", {fit : "cover"})
-        client.publish(localStream);
+        //   localStream.play('me', { fit : 'cover'});
+        Client.publish(localStream);
       });
     },
     handleFail
   );
-  client.on("Stream Added", function (evt) {
-    client.subscribe(evt.stream, handleFail);
+  Client.on("Stream Added", function (evt) {
+    Client.subscribe(evt.stream, handleFail);
   });
-  client.on("Stream Subscribed", function (evt) {
+  Client.on("Stream Subscribed", function (evt) {
     let stream = evt.stream;
-    stream.play("remote", { fit: "contain" });
+    stream.play("remote", { fit: "cover" });
   });
+  Client.on("Stream Removed", removeVideoStream);
+  Client.on("Peer Left", removeVideoStream);
 }
